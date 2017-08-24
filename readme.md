@@ -7,3 +7,4 @@
 [click here for google](http://www.google.com)
 
 ###[zeven's site](http://www.zevenrodriguez.com)
+[link to week1 assignment page]

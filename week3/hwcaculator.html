@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My App</title>
+
+    <style>
+        /* Enter CSS below */
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>Room area Calculator</h1>
+
+    <p><i>Enter the length and width of the room in order to get the room area.</i></p>
+
+    <img src="https://images" width="400">
+
+    <br>
+    <br>
+
+    <form>
+        <label for="licks1">Enter the length of the room(meter): </label>
+        <input type="text" name="licks1" id="licks1">
+
+ <br>
+    <br>
+   <label for="licks2">Enter the width of the room(meter): </label>
+        <input type="text" name="licks2" id="licks2">
+
+         <br>
+    <br>
+        <button type="button" id="lButton">Enter</button>
+
+        <br>
+        <br>
+
+        <div id="output"></div>
+
+    </form>
+
+    <script>
+     
+    
+        function roomarea() {
+            var length = document.getElementById("licks1").value;
+            console.log("length: " + length);
+            var width = document.getElementById("licks2").value;
+              console.log("width: " + width);
+            roomarea = length*width;
+            roomarea = Math.round(roomarea);
+            
+            
+            var message = "the room area is: " + roomarea + " square meter";
+            console.log(message);
+            var outputText = document.getElementById("output");
+            console.log(outputText);
+            outputText.innerHTML = message;
+        }
+        
+        
+        
+        var getButton = document.getElementById("lButton");
+        getButton.addEventListener("click", roomarea);
+    </script>
+
+</body>
+
+</html>

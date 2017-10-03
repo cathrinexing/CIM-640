@@ -13,7 +13,7 @@
 
 <body>
 
-    <h1>Room area Calculator</h1>
+    <h1>Room Area Calculator</h1>
 
     <p><i>Enter the length and width of the room in order to get the room area.</i></p>
 
@@ -21,24 +21,26 @@
 
     <br>
     <br>
-
-    <form>
-        <label for="licks1">Enter the length of the room(meter): </label>
+<legend style="color:MediumSeaGreen">Enter the room's details:</legend>
+    <br>
+    <form >
+        <label for="licks1" style="margin-left: 50px">Enter the length of the room(meter): </label>
         <input type="text" name="licks1" id="licks1">
 
  <br>
     <br>
-   <label for="licks2">Enter the width of the room(meter): </label>
+   <label for="licks2" style="margin-left: 50px">Enter the width of the room(meter): </label>
         <input type="text" name="licks2" id="licks2">
 
          <br>
     <br>
-        <button type="button" id="lButton">Enter</button>
+        <button type="button" id="lButton" style="margin-left: 200px">Calculate</button>
 
         <br>
         <br>
-
-        <div id="output"></div>
+        <legend style="color:MediumSeaGreen">Results:</legend>
+    
+        <div id="output" style="margin-left: 50px"></div>
 
     </form>
 
@@ -54,7 +56,7 @@
             roomarea = Math.round(roomarea);
             
             
-            var message = "the room area is: " + roomarea + " square meter";
+            var message = "The room area is: " + roomarea + " square meter";
             console.log(message);
             var outputText = document.getElementById("output");
             console.log(outputText);

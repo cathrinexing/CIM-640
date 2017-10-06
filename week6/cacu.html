@@ -27,7 +27,7 @@ legend {
 </head>
 
 
-<body>
+
     <h1 id="mycss">Room Area Calculator</h1>
 
     <h2><i>Enter the length and width of the room in order to get the room area.</i></h2>
@@ -61,7 +61,12 @@ legend {
     </form>
 
     <script>
-    
+     
+         var cssChange = document.getElementById("myCss");
+        cssChange.style.color = "grey;
+        cssChange.style.fontSize = "40px";
+        cssChange.style.textDecoration = "line-through";     
+        
         
         function roomarea() {
             var length = document.getElementById("licks1").value;

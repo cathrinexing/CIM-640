@@ -41,8 +41,9 @@ function draw() {
     arc(posX,posY,275,300, PI, TWO_PI);
     
     stroke("#937E57");
-    strokeWeight(3);
+    strokeWeight(5);
     point(posX + 80,posY + 10);
+    strokeWeight(3);
     point(posX - 80,posY + 10);
     point(posX + 10,posY + 120);
 

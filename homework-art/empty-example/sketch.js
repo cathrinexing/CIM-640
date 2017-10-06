@@ -2,17 +2,13 @@ var posX = 0;
 var posY = 0;
 
 function setup() {
-    createCanvas(1000, 500);
-    background(125);
-    background(255, 0, 0);
+    createCanvas(1000, 1000);
+    background(125); 
     background("purple");
-    background("#999999");
+  
 
-//    posX = width/2;
-//    posY = height/2;
-
-    posX = 250;
-    posY = 300;
+   posX = width/2;
+   posY = height/2;
 
 
 }

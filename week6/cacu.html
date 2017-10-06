@@ -5,7 +5,8 @@
     <title>My App</title>
 
     <style >
-        body{
+
+              body{
 	text-align:center;margin:auto;width:600px; border:solid 1px #000;background-color: beige;
 }
         
@@ -20,15 +21,14 @@ legend {
         
        div { 
     font-size: 24px;color: hotpink; font-style: oblique;
-}
-       
+} 
     </style>
 
 </head>
 
 <body>
 
-    <h1 id="mycss">Room Area Calculator</h1>
+    <h1 id="myCss">Room Area Calculator</h1>
 
     <h2><i>Enter the length and width of the room in order to get the room area.</i></h2>
 
@@ -62,11 +62,12 @@ legend {
 
     <script>
      
-         var cssChange = document.getElementById("myCss");
-        cssChange.style.color = "grey;
+        var cssChange = document.getElementById("myCss");
+        cssChange.style.color = "blue";
         cssChange.style.fontSize = "40px";
-        cssChange.style.textDecoration = "line-through";     
-        
+        cssChange.style.textAlign = "center";
+        cssChange.style.textDecoration ="underline";
+
         
         function roomarea() {
             var length = document.getElementById("licks1").value;

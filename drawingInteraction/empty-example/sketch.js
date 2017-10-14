@@ -1,114 +1,107 @@
 var centerX = 0;
 var centerY = 0;
 
-var bgChange, bgChange1, hitImage;
+var bgColor;
 
-var bgImage, bgImage2, currentBgImage;
+var hRedColor, hGreenColor, hBlueColor;
+
+var bgImage, bgImage2;
+
+var bgChange, bgChange2;
+
+var currentBgImage;
 
 var hitZoneX = 100;
 var hitZoneY = 100;
 
-var changeColor = false;
-
-var randomColor = [255, 255, 255];
-
-var showHide = true;
-
-var showHideButton;
-
+var ballons;
 
 function preload() {
     bgImage = loadImage("assets/carnival.jpg");
     bgImage2 = loadImage("assets/party.jpg");
-    hitImage = loadImage("assets/ballons.png");
+    ballons = loadImage("assets/ballons.png");
 }
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(400, 400);
     centerX = width / 2;
     centerY = height / 2;
 
-    bgChange = createButton('carnival');
-    bgChange.position(10, 500);
-    bgChange.mousePressed(bgFunction);
+    bgColor = color(255, 0, 0);
 
-    bgChange1 = createButton('party');
-    bgChange1.position(100, 500);
-    bgChange1.mousePressed(bgFunction1);
+    hRedColor = createSlider(0, 255, 0);
+    hGreenColor = createSlider(0, 255, 0);
+    hBlueColor = createSlider(0, 255, 0);
 
-    showHideButton = createButton('show hide');
-    showHideButton.position(200, 500);
-    showHideButton.mousePressed(showHideFunction);
+    bgChange = createButton("party");
+    bgChange.position(100, 500);
+    bgChange.mousePressed(changeBgFunction);
+
+    bgChange2 = createButton("Carnival");
+    bgChange2.position(0, 500);
+    bgChange2.mousePressed(changeBgFunction2);
 
     currentBgImage = bgImage;
 }
 
 function draw() {
-    image(currentBgImage, 0, 0);
+    background(bgColor);
 
-    if (changeColor == true) {
-        randomColor[0] = random(256);
-        randomColor[1] = random(256);
-        randomColor[2] = random(256);
+    image(currentBgImage, 0, 0, 400, 400);
 
-    }
+    //console.log("mouseX: " + mouseX + " mouseY: " + mouseY);
+    centerX = mouseX;
+    centerY = mouseY;
+    fill(255)
+    strokeWeight(1);
 
+    //face
+    ellipse(centerX, centerY, 100, 100);
 
-    if (showHide == true) {
-        fill(randomColor[0], randomColor[1], randomColor[2]);
+    var wiggleX = map(mouseX, 0, width, -10, 10);
+    //nose
+    ellipse(centerX + wiggleX, centerY + 10, 20, 20);
+    //eyse
+    ellipse(centerX - 10 + wiggleX, centerY - 10, 10, 20);
+    ellipse(centerX + 10 + wiggleX, centerY - 10, 10, 20);
+       //mouse
+    rectMode(CENTER);
+   rect(centerX, centerY + 30, 50, 15, 5);
+    rect(centerX, centerY + 30, 50, 1, 1);
+    
+    noFill();
+    stroke(hRedColor.value(), hGreenColor.value(), hBlueColor.value());
+    strokeWeight(4);
+    arc(centerX, centerY, 100, 100, 0, PI);
+    strokeWeight(30);
+    arc(centerX, centerY, 100, 100, PI, TWO_PI);
 
-        strokeWeight(1);
-        //face
-        ellipse(centerX, centerY, 100, 100);
-        //nose
-        ellipse(centerX, centerY + 10, 20, 20);
-        //eyse
-        ellipse(centerX - 10, centerY - 10, 10, 20);
-        ellipse(centerX + 10, centerY - 10, 10, 20);
-        rectMode(CENTER);
-        rect(centerX, centerY + 30, 50, 15, 5);
-        rect(centerX, centerY + 30, 50, 1, 1);
+//    if (mouseX == hitZoneX && mouseY == hitZoneY) {
+//        console.log("I am in the zone!!");
+//    }
 
-        noFill();
-        strokeWeight(4);
-        arc(centerX, centerY, 100, 100, 0, PI);
-        strokeWeight(30);
-        arc(centerX, centerY, 100, 100, PI, TWO_PI);
-    }
+    var hitZoneDist = dist(hitZoneX,hitZoneY,mouseX,mouseY);
+    console.log("hitZoneDist: " + hitZoneDist);
+
+    if(hitZoneDist <= 5){
+       console.log("We are totally in the zone!");
+        image(ballons,0,0);
+       }
 
     strokeWeight(5);
-
-    ellipse(hitZoneX, hitZoneY, 10, 10);
-    var hitZoneDist = dist(mouseX, mouseY, hitZoneX, hitZoneY);
-
-    console.log(hitZoneDist);
-
-    if (hitZoneDist < 10) {
-        image(hitImage, hitZoneX - 100, hitZoneY - 100);
-
-    }
-
-    ellipse(325, 325, 10, 10);
-    if (mouseX > 300 && mouseX < 350 && mouseY > 300 && mouseY < 350) {
-        changeColor = true;
-    } else {
-        changeColor = false;
-    }
+    ellipse(hitZoneX,hitZoneY, 10,10);
 
 }
 
-function bgFunction() {
-    currentBgImage = bgImage;
+function mousePressed() {
+    bgColor = color(0, 255, 0);
 }
 
-function bgFunction1() {
+function changeBgFunction() {
     currentBgImage = bgImage2;
+    console.log("loading bgimage2");
 }
 
-function showHideFunction() {
-    if (showHide == true) {
-        showHide = false;
-    } else {
-        showHide = true;
-    }
+function changeBgFunction2() {
+    currentBgImage = bgImage;
 }

@@ -8,15 +8,15 @@ function setup() {
 
     createCanvas(500, 500);
 
-    for(var i = 0; i < 4; i++){
+    for (var i = 0; i < 4; i++) {
         var lString = "assests/Thatwasclose" + i + ".jpg";
         frameArray[i] = loadImage(lString);
     }
 
-//    frameArray[0] = loadImage("assests/Thatwasclose0.jpg");
-//    frameArray[1] = loadImage("assests/Thatwasclose1.jpg");
-//    frameArray[2] = loadImage("assests/Thatwasclose2.jpg");
-//    frameArray[3] = loadImage("assests/Thatwasclose3.jpg");
+    //    frameArray[0] = loadImage("assests/Thatwasclose0.jpg");
+    //    frameArray[1] = loadImage("assests/Thatwasclose1.jpg");
+    //    frameArray[2] = loadImage("assests/Thatwasclose2.jpg");
+    //    frameArray[3] = loadImage("assests/Thatwasclose3.jpg");
 
 
 }

@@ -100,18 +100,3 @@ function bubble(tempX, tempY, tempDiameter, c, tempDirX, tempDirY){
 
 
 
-function display(){
-  ellipse(bubbleX,bubbleY,bubbleSize,bubbleSize);
-}
-
-function move(){
-  bubbleX++;
-}
-
-function checkPos(){
-  if(bubbleX > width){
-    return true;
-  }else{
-    return false;
-  }
-}

@@ -50,7 +50,7 @@ function setup() {
     bgChange.position(200, 600);
     bgChange.mousePressed(changeBgFunction);
 
-    bgChange2 = createButton("find your mate");
+    bgChange2 = createButton("animation");
     bgChange2.position(400, 600);
     bgChange2.mousePressed(changeBgFunction2);
     
@@ -86,6 +86,9 @@ function setup() {
    
 //select the random fish as a target
     randomFish = random(p.length);
+      jelly.stop();
+    waterp.stop();
+     waterp1.stop();
 }
 
 
@@ -116,11 +119,12 @@ function draw() {
     animation(jelly, 400, 350);
     animation(waterp, 200, 490);
     animation(waterp1, 550, 490);
+   
 
-    if (mouseIsPressed)
-        jelly.play();
-    else
-        jelly.stop();
+//    if (mouseIsPressed)
+//        jelly.play();
+//    else
+//        jelly.stop();
 
 //hitzones(food)
     var hitZoneDist1 = dist(hitZoneX1, hitZoneY1, mouseX, mouseY);
@@ -223,7 +227,9 @@ function changeBgFunction() {
 }
 
 function changeBgFunction2() {
-    currentBgImage = bgImage;
+    jelly.play();
+     waterp.play();
+     waterp1.play();
 }
 
 function changeBgFunction3() {
